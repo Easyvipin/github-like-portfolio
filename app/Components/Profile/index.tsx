@@ -1,5 +1,6 @@
 import * as React from "react";
 import ProfilePicture from "../ProfilePicture";
+import Link from "next/link";
 
 interface IProfileProps {}
 
@@ -26,6 +27,9 @@ const Profile: React.FunctionComponent<IProfileProps> = (props) => {
         <button className="bg-black text-white p-2 uppercase w-full font-semibold rounded-md">
           CONTACT ME
         </button>
+        <div className="border-t-2">
+          <Link href={""}></Link>
+        </div>
       </div>
     </div>
   );
