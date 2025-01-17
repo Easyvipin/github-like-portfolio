@@ -11,6 +11,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/usetimeout-gh27mj",
     liveUrl: "https://gh27mj.csb.app/",
   },
+  {
+    id: "use-previous-hook",
+    label: "usePrevious() hook in React",
+    codeBase: "https://codesandbox.io/p/sandbox/vvhv5c",
+    liveUrl: "https://vvhv5c.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
