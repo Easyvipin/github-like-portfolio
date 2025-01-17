@@ -1,6 +1,9 @@
-import * as React from "react";
+import React from "react";
 import ProfilePicture from "../ProfilePicture";
 import Link from "next/link";
+import { RiTwitterXLine } from "react-icons/ri";
+import { IoLogoGithub } from "react-icons/io5";
+import { FaLinkedin } from "react-icons/fa";
 
 interface IProfileProps {}
 
@@ -27,8 +30,19 @@ const Profile: React.FunctionComponent<IProfileProps> = (props) => {
         <button className="bg-black text-white p-2 uppercase w-full font-semibold rounded-md">
           CONTACT ME
         </button>
-        <div className="border-t-2">
-          <Link href={""}></Link>
+        <div className="border-t-2 py-2 flex flex-col gap-2">
+          <Link href={""} className="flex items-center gap-1">
+            <IoLogoGithub />
+            <span className="text-gray-500 text-sm">/easyvipin</span>
+          </Link>
+          <Link href={""} className="flex items-center gap-1">
+            <FaLinkedin />{" "}
+            <span className="text-gray-500 text-sm">/easyvipin</span>
+          </Link>
+          <Link href={""} className="flex items-center gap-1">
+            <RiTwitterXLine />{" "}
+            <span className="text-gray-500 text-sm">/easyvipin</span>
+          </Link>
         </div>
       </div>
     </div>
