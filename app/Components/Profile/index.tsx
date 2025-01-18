@@ -12,13 +12,13 @@ const Profile: React.FunctionComponent<IProfileProps> = (props) => {
     <div className="">
       <div className="flex gap-4 items-center">
         <ProfilePicture />
-        <div className="block md:hidden">
+        <div className="block lg:hidden">
           <h4 className="font-bold text-xl">Vipin Chandra</h4>
           <h6 className="font-extralight text-gray-500">UI Engineer</h6>
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-4">
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <h4 className="font-bold text-2xl">Vipin Chandra</h4>
           <h6 className="font-extralight text-gray-500">UI Engineer</h6>
         </div>
