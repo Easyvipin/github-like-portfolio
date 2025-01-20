@@ -17,6 +17,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/vvhv5c",
     liveUrl: "https://vvhv5c.csb.app/",
   },
+  {
+    id: "feature-flag",
+    label: "feature flag implementation in React",
+    codeBase: "https://codesandbox.io/p/sandbox/m75qrr",
+    liveUrl: "https://m75qrr.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;

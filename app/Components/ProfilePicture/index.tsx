@@ -6,7 +6,7 @@ const ProfilePicture: React.FunctionComponent<IProfilePictureProps> = (
   props
 ) => {
   return (
-    <div className=" w-[20%] md:w-[100%] border overflow-hidden rounded-full">
+    <div className=" w-[20%] lg:w-[100%] border overflow-hidden rounded-full">
       <Image
         alt="profile"
         src="https://avatar.iran.liara.run/public/48"
