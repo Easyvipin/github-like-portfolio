@@ -23,6 +23,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/m75qrr",
     liveUrl: "https://m75qrr.csb.app/",
   },
+  {
+    id: "Auth-hoc",
+    label: "Auth HOC",
+    codeBase: "https://codesandbox.io/p/sandbox/withauth-c9my54",
+    liveUrl: "https://c9my54.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
