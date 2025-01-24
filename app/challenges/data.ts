@@ -29,6 +29,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/withauth-c9my54",
     liveUrl: "https://c9my54.csb.app/",
   },
+  {
+    id: "chessboard-grid",
+    label: "Chessboard Grid Layout",
+    codeBase: "https://codesandbox.io/p/sandbox/chessboard-ff67cl",
+    liveUrl: "https://ff67cl.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
