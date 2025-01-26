@@ -9,7 +9,7 @@ import { client } from "./sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { PROFILE_QUERY } from "./sanity/queries";
 import { notFound } from "next/navigation";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -32,24 +32,24 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   }
 
-  const { profileImg, position, bio } = profile[0];
+  const { profileImg, position } = profile[0];
   const profileImageUrl = profileImg
     ? urlFor(profileImg)?.width(100).height(100).url()
     : null;
 
   return {
     title: "Vipin Chandra", // Set the title as the profile name
-    description: bio,
+    description: position,
     // Include the bio in the metadata description
     openGraph: {
       title: "Vipin Chandra", // Open Graph title
-      description: bio, // Open Graph description
+      description: position, // Open Graph description
       images: profileImageUrl ? [profileImageUrl] : [], // Use profile image for social sharing
     },
     twitter: {
       card: "summary_large_image", // Set Twitter card type
       title: "Vipin Chandra", // Twitter title
-      description: bio, // Twitter description
+      description: position, // Twitter description
       images: profileImageUrl ? [profileImageUrl] : [], // Twitter image
     },
   };

@@ -4,9 +4,7 @@ import { VscVscode } from "react-icons/vsc";
 import { RiNavigationLine } from "react-icons/ri";
 import Link from "next/link";
 
-interface IUIChallengesProps {}
-
-const UIChallenges: React.FunctionComponent<IUIChallengesProps> = (props) => {
+const UIChallenges: React.FunctionComponent = () => {
   return (
     <div className="w-[95vw] md:w-[65vw] mx-auto py-8 md:py-10">
       <h4 className="text-2xl text-center font-extralight text-gray-500 mb-4">
