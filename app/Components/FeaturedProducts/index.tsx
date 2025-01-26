@@ -2,12 +2,11 @@ import { Language } from "@src/app/types";
 import ProjectCard from "../ProjectCard";
 
 export interface IProject {
-  id: string;
   name: string;
   desc: string;
-  majorLanguage: Language;
-  projectLink: string;
-  liveLink: string;
+  language: Language;
+  codeUrl: string;
+  liveUrl: string;
 }
 
 interface IFeaturedProductsProps {
@@ -26,13 +25,12 @@ const FeaturedProducts: React.FunctionComponent<IFeaturedProductsProps> = ({
       <div className="flex flex-row flex-wrap justify-between gap-4 mt-4">
         {projects.map((eachProject: IProject) => (
           <ProjectCard
-            key={eachProject.id}
-            id={eachProject.id}
+            key={eachProject.name}
             name={eachProject.name}
             desc={eachProject.desc}
-            majorLanguage={eachProject.majorLanguage}
-            projectLink={eachProject.projectLink}
-            liveLink={eachProject.liveLink}
+            language={eachProject.language}
+            codeUrl={eachProject.codeUrl ?? ""}
+            liveUrl={eachProject.liveUrl ?? ""}
           />
         ))}
       </div>

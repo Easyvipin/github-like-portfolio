@@ -1,15 +1,17 @@
 import Image from "next/image";
 
-interface IProfilePictureProps {}
+interface IProfilePictureProps {
+  img: string;
+}
 
-const ProfilePicture: React.FunctionComponent<IProfilePictureProps> = (
-  props
-) => {
+const ProfilePicture: React.FunctionComponent<IProfilePictureProps> = ({
+  img,
+}) => {
   return (
     <div className=" w-[20%] lg:w-[100%] border overflow-hidden rounded-full">
       <Image
         alt="profile"
-        src="https://avatar.iran.liara.run/public/48"
+        src={img}
         width={300}
         height={300}
         className="object-cover w-full h-full"

@@ -1,15 +1,12 @@
-interface IAboutProps {}
+interface IAboutProps {
+  content: string;
+}
 
-const About: React.FunctionComponent<IAboutProps> = (props) => {
+const About: React.FunctionComponent<IAboutProps> = ({ content }) => {
   return (
     <div>
       <h1 className="text-xl text-black captalize font-extrabold">About Me</h1>
-      <p className="text-md text-gray-500 tracking-wide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-        voluptate commodi, adipisci blanditiis temporibus, quis facilis
-        provident inventore impedit dolorum neque similique doloremque quae nam
-        expedita modi iure officiis esse!
-      </p>
+      <p className="text-md text-gray-500 tracking-wide mt-4">{content}</p>
     </div>
   );
 };
