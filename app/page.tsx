@@ -4,11 +4,11 @@ import FeaturedProducts from "./Components/FeaturedProducts";
 import Profile from "./Components/Profile";
 import Skills from "./Components/Skills";
 import WorkExperience from "./Components/WorkExperience";
-import { mockProjects } from "./utils/constants";
 import { type SanityDocument } from "next-sanity";
 import { client } from "./sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { PROFILE_QUERY } from "./sanity/queries";
+import { notFound } from "next/navigation";
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -25,18 +25,21 @@ export default async function Home() {
     options
   );
 
+  if (!profile) {
+    return notFound();
+  }
+
   const profileImg = profile[0].profileImg
     ? urlFor(profile[0].profileImg)?.width(310).height(310).url()
     : null;
 
   const { bio, position, socials, skills, aboutMe, projects, workExperience } =
     profile[0];
-
   return (
     <div className="w-[85vw] lg:w-[65vw] mx-auto py-8 md:py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div className="grid grid-rows-3 gap-4">
-          <div className="border-2 px-6 row-span-3 py-4 rounded-md">
+          <div className="px-6 row-span-3 py-4 border rounded-md shadow-sm">
             <Profile
               bio={bio}
               profileImg={profileImg!}
@@ -44,19 +47,19 @@ export default async function Home() {
               socials={socials}
             />
           </div>
-          <div className="border-2 px-6 py-4 rounded-md">
+          <div className="border rounded-md shadow-sm px-6 py-4">
             <Skills data={skills} />
           </div>
         </div>
         <div className="lg:col-span-2 rounded-md">
-          <div className="border-2 px-6 py-4 rounded-md ">
+          <div className="border px-6 py-4 rounded-md shadow-sm">
             <About content={aboutMe} />
           </div>
           <div className="mt-4">
-            <FeaturedProducts projects={mockProjects} />
+            <FeaturedProducts projects={projects} />
           </div>
           <div className="mt-4">
-            <WorkExperience />
+            <WorkExperience experiences={workExperience} />
           </div>
         </div>
       </div>

@@ -7,7 +7,6 @@ interface IProfilePictureProps {
 const ProfilePicture: React.FunctionComponent<IProfilePictureProps> = ({
   img,
 }) => {
-  console.log(img);
   return (
     <div className=" w-[20%] lg:w-[100%] border overflow-hidden rounded-full">
       <Image
