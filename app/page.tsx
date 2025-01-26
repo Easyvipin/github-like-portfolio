@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const { profileImg, position } = profile[0];
   const profileImageUrl = profileImg
-    ? urlFor(profileImg)?.width(100).height(100).url()
+    ? urlFor(profileImg)?.width(600).height(600).url()
     : null;
 
   return {
@@ -69,7 +69,7 @@ export default async function Home() {
   }
 
   const profileImg = profile[0].profileImg
-    ? urlFor(profile[0].profileImg)?.width(310).height(310).url()
+    ? urlFor(profile[0].profileImg)?.width(500).height(500).url()
     : null;
 
   const { bio, position, socials, skills, aboutMe, projects, workExperience } =
