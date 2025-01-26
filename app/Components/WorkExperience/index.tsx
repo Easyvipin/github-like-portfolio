@@ -14,7 +14,10 @@ const WorkExperience: React.FunctionComponent<IWorkExperienceProps> = ({
       </h4>
       <div className="flex flex-col gap-5 mt-4">
         {experiences.map((eachExperience) => (
-          <ExperienceCard data={eachExperience} />
+          <ExperienceCard
+            key={eachExperience.startDate}
+            data={eachExperience}
+          />
         ))}
       </div>
     </section>

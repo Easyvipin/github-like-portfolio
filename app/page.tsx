@@ -9,6 +9,7 @@ import { client } from "./sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { PROFILE_QUERY } from "./sanity/queries";
 import { notFound } from "next/navigation";
+import { Metadata, ResolvingMetadata } from "next";
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -16,7 +17,45 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 
-const options = { next: { revalidate: 1 } };
+export async function generateMetadata(): Promise<Metadata> {
+  // Fetch the profile data
+  const profile = await client.fetch<SanityDocument>(
+    PROFILE_QUERY,
+    {},
+    { next: { revalidate: 30 } }
+  );
+
+  // Handle the case where no profile is found
+  if (!profile || profile.length === 0) {
+    return {
+      title: "Profile Not Found",
+    };
+  }
+
+  const { profileImg, position, bio } = profile[0];
+  const profileImageUrl = profileImg
+    ? urlFor(profileImg)?.width(100).height(100).url()
+    : null;
+
+  return {
+    title: "Vipin Chandra", // Set the title as the profile name
+    description: bio,
+    // Include the bio in the metadata description
+    openGraph: {
+      title: "Vipin Chandra", // Open Graph title
+      description: bio, // Open Graph description
+      images: profileImageUrl ? [profileImageUrl] : [], // Use profile image for social sharing
+    },
+    twitter: {
+      card: "summary_large_image", // Set Twitter card type
+      title: "Vipin Chandra", // Twitter title
+      description: bio, // Twitter description
+      images: profileImageUrl ? [profileImageUrl] : [], // Twitter image
+    },
+  };
+}
+
+const options = { next: { revalidate: 30 } };
 
 export default async function Home() {
   const profile = await client.fetch<SanityDocument>(
