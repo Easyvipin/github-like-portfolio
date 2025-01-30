@@ -35,6 +35,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/chessboard-ff67cl",
     liveUrl: "https://ff67cl.csb.app/",
   },
+  {
+    id: "tabs-component",
+    label: "Tabs Component",
+    codeBase: "https://codesandbox.io/p/devbox/vj32d8",
+    liveUrl: "https://vj32d8-3000.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
