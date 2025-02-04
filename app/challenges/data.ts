@@ -41,6 +41,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/devbox/vj32d8",
     liveUrl: "https://vj32d8-3000.csb.app/",
   },
+  {
+    id: "otp-component",
+    label: "OTP component",
+    codeBase: "https://codesandbox.io/p/devbox/otp-component-659nf9",
+    liveUrl: "https://659nf9-3000.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
