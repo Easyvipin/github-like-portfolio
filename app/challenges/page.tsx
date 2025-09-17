@@ -21,10 +21,10 @@ const UIChallenges: React.FunctionComponent = () => {
                 <h4>{eachChallenge.label}</h4>
               </div>
               <div className="flex gap-4">
-                <Link href={eachChallenge.codeBase}>
+                <Link href={eachChallenge.codeBase} target="_blank">
                   <VscVscode />
                 </Link>
-                <Link href={eachChallenge.liveUrl}>
+                <Link href={eachChallenge.liveUrl} target="_blank">
                   <RiNavigationLine />
                 </Link>
               </div>

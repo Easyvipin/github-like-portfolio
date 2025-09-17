@@ -47,6 +47,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/devbox/otp-component-659nf9",
     liveUrl: "https://659nf9-3000.csb.app/",
   },
+  {
+    id: "use-update-hook",
+    label: "useUpdateHook (useEffect to skip first render)",
+    codeBase: "https://codesandbox.io/p/sandbox/385fqv",
+    liveUrl: "https://385fqv.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
