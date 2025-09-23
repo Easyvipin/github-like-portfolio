@@ -59,6 +59,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/l6p4jp",
     liveUrl: "https://l6p4jp.csb.app/",
   },
+  {
+    id: "type-writer",
+    label: "type writing game",
+    codeBase: "https://codesandbox.io/p/sandbox/hy4pkc",
+    liveUrl: "https://hy4pkc.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
