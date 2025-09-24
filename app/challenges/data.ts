@@ -65,6 +65,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/hy4pkc",
     liveUrl: "https://hy4pkc.csb.app/",
   },
+  {
+    id: "use-effect-once",
+    label: "useEffectOnce , hook to runs effect only single time",
+    codeBase: "https://codesandbox.io/p/sandbox/3fmq5m",
+    liveUrl: "https://3fmq5m.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
