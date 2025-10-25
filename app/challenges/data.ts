@@ -71,6 +71,12 @@ const ALL_CHALLANGES = [
     codeBase: "https://codesandbox.io/p/sandbox/3fmq5m",
     liveUrl: "https://3fmq5m.csb.app/",
   },
+  {
+    id: "use-fetch",
+    label: "useFetch , hook to fetch data",
+    codeBase: "https://codesandbox.io/p/sandbox/usedatafetch-g8gy2k",
+    liveUrl: "https://g8gy2k.csb.app/",
+  },
 ];
 
 export default ALL_CHALLANGES;
