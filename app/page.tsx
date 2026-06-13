@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const profile = await client.fetch<SanityDocument>(
     PROFILE_QUERY,
     {},
-    { next: { revalidate: 30 } }
+    { next: { revalidate: 30 } },
   );
 
   // Handle the case where no profile is found
@@ -61,7 +61,7 @@ export default async function Home() {
   const profile = await client.fetch<SanityDocument>(
     PROFILE_QUERY,
     {},
-    options
+    options,
   );
 
   if (!profile) {
@@ -76,9 +76,9 @@ export default async function Home() {
     profile[0];
   return (
     <div className="w-[85vw] lg:w-[65vw] mx-auto py-8 md:py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <div className="grid grid-rows-3 gap-4">
-          <div className="px-6 row-span-3 py-4 border rounded-md shadow-sm">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start relative">
+        <div className="grid gap-4 lg:sticky lg:top-10 self-start">
+          <div className="px-6 row-span-3 py-4 border border-dashed shadow-sm">
             <Profile
               bio={bio}
               profileImg={profileImg!}
@@ -86,7 +86,7 @@ export default async function Home() {
               socials={socials}
             />
           </div>
-          <div className="border rounded-md shadow-sm px-6 py-4">
+          <div className="border border-dashed shadow-sm px-6 py-4">
             <Skills data={skills} />
           </div>
         </div>
