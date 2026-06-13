@@ -1,4 +1,5 @@
 import Badge from "../Badge";
+import { motion } from "motion/react";
 
 interface ISkillsProps {
   data: string[];
@@ -7,7 +8,6 @@ interface ISkillsProps {
 const Skills: React.FunctionComponent<ISkillsProps> = ({ data }) => {
   return (
     <div>
-      <h1 className="text-xl text-black captalize font-extrabold">Skills</h1>
       <div className="flex flex-wrap gap-2 justify-start mt-2">
         {data.map((eachSkill) => (
           <Badge key={eachSkill}>{eachSkill}</Badge>

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { RiCalendarTodoLine } from "react-icons/ri";
+import { motion } from "motion/react";
 
 interface CompanyLogo {
   asset: {
@@ -47,7 +50,17 @@ const ExperienceCard: React.FunctionComponent<IExperienceCardProps> = ({
     : "Present";
 
   return (
-    <div className="border rounded-md px-6 py-6">
+    <motion.div
+      className="border rounded-md px-6 py-6"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{ opacity: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+      }}
+    >
       <div className="flex gap-4 items-center">
         <div className="border rounded-md shadow-sm w-[40px] h-[40px]">
           <Image
@@ -78,8 +91,10 @@ const ExperienceCard: React.FunctionComponent<IExperienceCardProps> = ({
           {formattedStartDate} - {formattedEndDate}
         </span>
       </div>
-      <p className="text-sm font-light mt-2 whitespace-pre-wrap">{desc}</p>
-    </div>
+      <p className="text-sm text-gray-500  font-light mt-2 whitespace-pre-wrap">
+        {desc}
+      </p>
+    </motion.div>
   );
 };
 

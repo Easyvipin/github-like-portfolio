@@ -6,6 +6,7 @@ import Link from "next/link";
 import { RiTwitterXLine } from "react-icons/ri";
 import { IoLogoGithub } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "motion/react";
 
 type socials = {
   type: string;
@@ -40,13 +41,17 @@ const Profile: React.FunctionComponent<IProfileProps> = ({
           <h4 className="font-bold text-2xl">Vipin Chandra</h4>
           <h6 className="font-extralight text-gray-500">{position}</h6>
         </div>
-        <p className="text-gray-500">{bio}</p>
-        <a
+        <p className="text-gray-500 text-sm">{bio}</p>
+        <motion.a
           href="mailto:vipinchandra555@gmail.com"
           className="bg-black text-white p-2 uppercase w-full font-semibold rounded-md text-center hover:bg-gray-900"
+          whileHover={{
+            scale: "1.04",
+          }}
+          transition={{ duration: 0.5 }}
         >
           CONTACT ME
-        </a>
+        </motion.a>
         <div className="border-t-2 py-2 flex flex-col gap-2">
           {socials.map((eachSocial) => (
             <Link
