@@ -1,5 +1,4 @@
 import Badge from "../Badge";
-import { motion } from "motion/react";
 
 interface ISkillsProps {
   data: string[];
