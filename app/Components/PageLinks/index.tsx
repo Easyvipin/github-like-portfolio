@@ -59,6 +59,7 @@ interface IDockItemProps {
   axis: "x" | "y";
   offset: number;
   size: string;
+  glass?: boolean;
 }
 
 const DockItem: React.FunctionComponent<IDockItemProps> = ({
@@ -69,6 +70,7 @@ const DockItem: React.FunctionComponent<IDockItemProps> = ({
   axis,
   offset,
   size,
+  glass = false,
 }) => (
   <Link href={href} title={label} aria-label={label}>
     <motion.div
@@ -77,9 +79,13 @@ const DockItem: React.FunctionComponent<IDockItemProps> = ({
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.94 }}
       className={`${size} flex items-center justify-center rounded-full text-base transition-colors duration-300 ${
-        isActive
-          ? "bg-black/80 text-white backdrop-blur-md shadow-inner"
-          : "text-gray-600 hover:bg-white/70 hover:text-black"
+        glass
+          ? isActive
+            ? "bg-black/70 text-white border border-white/20 backdrop-blur-md shadow-inner"
+            : "bg-white/30 text-gray-700 border border-white/50 backdrop-blur-md hover:bg-white/50"
+          : isActive
+            ? "text-black"
+            : "text-gray-400 hover:text-black"
       }`}
     >
       <Icon />
@@ -96,12 +102,12 @@ const PageLinks: React.FunctionComponent = () => {
 
   return (
     <>
-      {/* Desktop / tablet: vertical dock beside the photo */}
+      {/* Desktop / tablet: plain vertical icon buttons beside the photo, no glass */}
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className={`hidden lg:flex flex-col items-center gap-3 p-2 rounded-full shrink-0 ${GLASS_CONTAINER}`}
+        className="hidden lg:flex flex-col items-center gap-4 shrink-0"
       >
         {PAGE_LINKS.map(({ href, label, icon }, index) => (
           <DockItem
@@ -117,26 +123,31 @@ const PageLinks: React.FunctionComponent = () => {
         ))}
       </motion.div>
 
-      {/* Mobile: floating bottom navigation bar */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className={`lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center gap-4 px-4 py-2 rounded-full ${GLASS_CONTAINER}`}
-      >
-        {PAGE_LINKS.map(({ href, label, icon }, index) => (
-          <DockItem
-            key={href}
-            href={href}
-            label={label}
-            icon={icon}
-            isActive={pathname === href}
-            axis="x"
-            offset={(index - center) * STEP_HORIZONTAL}
-            size="w-11 h-11"
-          />
-        ))}
-      </motion.div>
+      {/* Mobile: centered floating glass dock. Centering lives on a plain
+          wrapper so Motion's own transform never clobbers a translate-x
+          utility class on the same element. */}
+      <div className="lg:hidden fixed bottom-4 inset-x-0 z-50 flex justify-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className={`flex flex-row items-center gap-4 px-4 py-2 rounded-full ${GLASS_CONTAINER}`}
+        >
+          {PAGE_LINKS.map(({ href, label, icon }, index) => (
+            <DockItem
+              key={href}
+              href={href}
+              label={label}
+              icon={icon}
+              isActive={pathname === href}
+              axis="x"
+              offset={(index - center) * STEP_HORIZONTAL}
+              size="w-11 h-11"
+              glass
+            />
+          ))}
+        </motion.div>
+      </div>
     </>
   );
 };
