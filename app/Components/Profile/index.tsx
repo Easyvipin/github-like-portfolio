@@ -2,6 +2,7 @@
 
 import React from "react";
 import ProfilePicture from "../ProfilePicture";
+import PageLinks from "../PageLinks";
 import Link from "next/link";
 import { RiTwitterXLine } from "react-icons/ri";
 import { IoLogoGithub } from "react-icons/io5";
@@ -31,6 +32,7 @@ const Profile: React.FunctionComponent<IProfileProps> = ({
     <div className="">
       <div className="flex gap-4 items-center">
         <ProfilePicture img={profileImg} />
+        <PageLinks />
         <div className="block lg:hidden">
           <h4 className="font-bold text-xl">Vipin Chandra</h4>
           <h6 className="font-extralight text-gray-500">{position}</h6>
